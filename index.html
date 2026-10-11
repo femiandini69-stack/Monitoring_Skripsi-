@@ -1,0 +1,1825 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMOBISKRIP</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">MS</div>
+            <div>
+                <h2>SIMOBISKRIP</h2>
+                <span>Teknologi Informasi</span>
+            </div>
+        </div>
+
+        <nav class="menu">
+
+            <p class="menu-title">MENU UTAMA</p>
+
+            <button class="menu-item active" data-page="dashboard">
+                <span>⌂</span>
+                Dashboard
+            </button>
+
+            <button class="menu-item" data-page="kuota">
+                <span>◉</span>
+                Kuota Bimbingan
+            </button>
+
+            <button class="menu-item" data-page="jadwal">
+                <span>▣</span>
+                Jadwal Bimbingan
+            </button>
+
+            <button class="menu-item" data-page="revisi">
+                <span>↻</span>
+                Revisi Skripsi
+                <b class="badge">3</b>
+            </button>
+
+            <button class="menu-item" data-page="dokumen">
+                <span>▤</span>
+                Dokumen
+            </button>
+
+            <button class="menu-item" data-page="progress">
+                <span>◔</span>
+                Progress Skripsi
+            </button>
+
+            <p class="menu-title">LAINNYA</p>
+
+            <button class="menu-item" data-page="notifikasi">
+                <span>♢</span>
+                Notifikasi
+                <b class="badge">2</b>
+            </button>
+
+            <button class="menu-item" data-page="ai">
+                <span>✦</span>
+                AI Assistant
+            </button>
+
+            <button class="menu-item" data-page="profil">
+                <span>◎</span>
+                Profil
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="mini-profile">
+                <div class="avatar">FA</div>
+
+                <div>
+                    <strong>Femi Aulia Andini</strong>
+                    <small>Mahasiswa</small>
+                </div>
+            </div>
+
+            <button class="logout" onclick="logout()">
+                ↪ Keluar
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+    <main class="main">
+
+        <!-- ================= HEADER ================= -->
+        <header class="header">
+
+            <div>
+                <h1 id="pageTitle">Dashboard</h1>
+
+                <p id="pageSubtitle">
+                    Pantau bimbingan, kelola revisi, selesaikan skripsi.
+                </p>
+            </div>
+
+            <div class="header-right">
+
+                <button
+                    class="notification-btn"
+                    onclick="openPage('notifikasi')"
+                >
+                    ♢
+                    <span>2</span>
+                </button>
+
+                <div class="header-profile">
+
+                    <div class="avatar small">
+                        FA
+                    </div>
+
+                    <div>
+                        <strong>Femi Aulia Andini</strong>
+                        <small>Mahasiswa</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================================
+             DASHBOARD
+        ====================================================== -->
+        <section class="page active-page" id="dashboard">
+
+            <div class="welcome">
+
+                <div>
+                    <span class="welcome-label">
+                        Selamat datang kembali
+                    </span>
+
+                    <h2>
+                        Femi Aulia Andini
+                    </h2>
+
+                    <p>
+                        Pantau progres bimbingan dan revisimu di sini.
+                    </p>
+                </div>
+
+                <div class="welcome-progress">
+
+                    <span>
+                        Progress Skripsi
+                    </span>
+
+                    <strong>
+                        65%
+                    </strong>
+
+                    <div class="progress-bar">
+                        <div style="width:65%"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATISTIK -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon brown">
+                        ▣
+                    </div>
+
+                    <div>
+                        <span>Total Bimbingan</span>
+                        <strong>8</strong>
+                        <small>✓ 7 selesai</small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ↻
+                    </div>
+
+                    <div>
+                        <span>Revisi Aktif</span>
+                        <strong>3</strong>
+                        <small>Perlu ditindaklanjuti</small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon brown">
+                        ▤
+                    </div>
+
+                    <div>
+                        <span>Total Dokumen</span>
+                        <strong>12</strong>
+                        <small>Dokumen tersimpan</small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ◔
+                    </div>
+
+                    <div>
+                        <span>Progress</span>
+                        <strong>65%</strong>
+                        <small>Terus semangat!</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- JADWAL & AKTIVITAS -->
+            <div class="two-column">
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Bimbingan Berikutnya</h3>
+                            <p>Jadwal bimbingan terdekat</p>
+                        </div>
+
+                        <button
+                            class="text-button"
+                            onclick="openPage('jadwal')"
+                        >
+                            Lihat semua →
+                        </button>
+
+                    </div>
+
+
+                    <div class="schedule-highlight">
+
+                        <div class="date-box">
+                            <span>OKT</span>
+                            <strong>12</strong>
+                        </div>
+
+                        <div class="schedule-info">
+
+                            <h4>
+                                Bimbingan Skripsi #9
+                            </h4>
+
+                            <p>
+                                Senin, 12 Oktober 2026
+                            </p>
+
+                            <p>
+                                10.00 - 11.00 WIB · K3.A.310
+                            </p>
+
+                            <div class="lecturer">
+
+                                <div class="avatar lecturer-avatar">
+                                    MR
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Dr. Muhammad Rizky Pratama
+                                    </strong>
+
+                                    <small>
+                                        Dosen Pembimbing
+                                    </small>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <span class="status upcoming">
+                            Mendatang
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- AKTIVITAS -->
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Aktivitas Terbaru</h3>
+                            <p>Aktivitas terakhir sistem</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="activity-list">
+
+                        <div class="activity">
+
+                            <div class="activity-icon green">
+                                ✓
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Revisi Bab III selesai
+                                </strong>
+
+                                <span>
+                                    Hari ini, 09.30
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity">
+
+                            <div class="activity-icon brown">
+                                ↑
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Dokumen Bab IV diunggah
+                                </strong>
+
+                                <span>
+                                    Kemarin, 15.20
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity">
+
+                            <div class="activity-icon green">
+                                ▣
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Jadwal bimbingan dibuat
+                                </strong>
+
+                                <span>
+                                    8 Oktober 2026
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TAHAPAN SKRIPSI -->
+            <div class="card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3>Tahapan Skripsi</h3>
+                        <p>Perkembangan pengerjaan skripsimu</p>
+                    </div>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <div class="timeline-item done">
+                        <div class="timeline-number">✓</div>
+
+                        <div>
+                            <strong>Pengajuan Judul</strong>
+                            <span>Selesai</span>
+                        </div>
+                    </div>
+
+
+                    <div class="timeline-item done">
+                        <div class="timeline-number">✓</div>
+
+                        <div>
+                            <strong>Proposal Skripsi</strong>
+                            <span>Selesai</span>
+                        </div>
+                    </div>
+
+
+                    <div class="timeline-item done">
+                        <div class="timeline-number">✓</div>
+
+                        <div>
+                            <strong>Seminar Proposal</strong>
+                            <span>Selesai</span>
+                        </div>
+                    </div>
+
+
+                    <div class="timeline-item active">
+                        <div class="timeline-number">4</div>
+
+                        <div>
+                            <strong>Bimbingan & Revisi</strong>
+                            <span>Sedang berjalan</span>
+                        </div>
+                    </div>
+
+
+                    <div class="timeline-item">
+                        <div class="timeline-number">5</div>
+
+                        <div>
+                            <strong>Ujian Skripsi</strong>
+                            <span>Belum dimulai</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             KUOTA BIMBINGAN
+        ====================================================== -->
+        <section class="page" id="kuota">
+
+            <div class="page-actions">
+
+                <div>
+
+            
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="card quota-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>
+                            Pilih Slot
+                        </h3>
+
+                        <p>
+                            Slot tersedia berdasarkan kuota bimbingan
+                            masing-masing dosen.
+                        </p>
+
+                    </div>
+
+                    <span class="quota-limit">
+                        Maks. 10 mahasiswa / hari
+                    </span>
+
+                </div>
+
+
+                <!-- PILIHAN DOSEN DAN TANGGAL -->
+                <div class="quota-form">
+
+                    <div class="quota-field">
+
+                        <label for="quotaLecturer">
+                            Dosen Pembimbing
+                        </label>
+
+                        <select
+                            id="quotaLecturer"
+                            onchange="updateQuota()"
+                        >
+
+                            <option value="ahmad">
+                                Dr. Muhammad Rizky Pratama
+                            </option>
+
+                            <option value="siti">
+                                Dr. Nur Aisyah Rahma
+                            </option>
+
+                            <option value="budi">
+                                Dr. Fajar Hidayat
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="quota-field">
+
+                        <label for="quotaDate">
+                            Tanggal
+                        </label>
+
+                        <input
+                            type="date"
+                            id="quotaDate"
+                            value="2026-10-12"
+                            onchange="updateQuota()"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- RINGKASAN -->
+                <div class="quota-summary">
+
+                    <div class="quota-number">
+
+                        <span>
+                            Kuota Terisi
+                        </span>
+
+                        <strong id="quotaUsed">
+                            7 / 10
+                        </strong>
+
+                    </div>
+
+
+                    <div class="quota-number">
+
+                        <span>
+                            Slot Tersedia
+                        </span>
+
+                        <strong id="quotaAvailable">
+                            3
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROGRESS -->
+                <div class="quota-progress">
+
+                    <div class="quota-progress-info">
+
+                        <span>
+                            Penggunaan Kuota
+                        </span>
+
+                        <strong id="quotaPercentage">
+                            70%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div
+                            id="quotaProgressBar"
+                            style="width:70%"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MAHASISWA -->
+                <div class="quota-students">
+
+                    <div class="quota-students-header">
+
+                        <h4>
+                            Mahasiswa yang Sudah Mengambil Slot
+                        </h4>
+
+                        <span id="studentCount">
+                            7 mahasiswa
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="student-slot-list"
+                        id="studentSlotList"
+                    >
+
+                        <div class="student-slot">
+                            <span class="slot-number">1</span>
+
+                            <div>
+                                <strong>Bagas Pratama</strong>
+                                <small>43050240012</small>
+                            </div>
+
+                            <span class="slot-status">
+                                Slot 1
+                            </span>
+                        </div>
+
+
+                        <div class="student-slot">
+                            <span class="slot-number">2</span>
+
+                            <div>
+                                <strong>Nabila Putri</strong>
+                                <small>43050240018</small>
+                            </div>
+
+                            <span class="slot-status">
+                                Slot 2
+                            </span>
+                        </div>
+
+
+                        <div class="student-slot">
+                            <span class="slot-number">3</span>
+
+                            <div>
+                                <strong>Raka Saputra</strong>
+                                <small>43050240021</small>
+                            </div>
+
+                            <span class="slot-status">
+                                Slot 3
+                            </span>
+                        </div>
+
+
+                        <div class="student-slot">
+                            <span class="slot-number">4</span>
+
+                            <div>
+                                <strong>Alma Safitri</strong>
+                                <small>43050240025</small>
+                            </div>
+
+                            <span class="slot-status">
+                                Slot 4
+                            </span>
+                        </div>
+
+
+                        <div class="student-slot">
+                            <span class="slot-number">5</span>
+
+                            <div>
+                                <strong>Rafi Maulana</strong>
+                                <small>43050240031</small>
+                            </div>
+
+                            <span class="slot-status">
+                                Slot 5
+                            </span>
+                        </div>
+
+
+                        <div class="student-slot">
+                            <span class="slot-number">6</span>
+
+                            <div>
+                                <strong>Intan Permata</strong>
+                                <small>43050240036</small>
+                            </div>
+
+                            <span class="slot-status">
+                                Slot 6
+                            </span>
+                        </div>
+
+
+                        <div class="student-slot">
+                            <span class="slot-number">7</span>
+
+                            <div>
+                                <strong>Dimas Kurniawan</strong>
+                                <small>43050240041</small>
+                            </div>
+
+                            <span class="slot-status">
+                                Slot 7
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="primary-btn quota-button"
+                    id="takeQuotaBtn"
+                    onclick="takeQuota()"
+                >
+                    ✓ Ambil Slot
+                </button>
+
+            </div>
+
+
+            <!-- INFORMASI -->
+            <div class="two-column">
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Cara Mengambil Slot</h3>
+
+                            <p>
+                                Ikuti langkah berikut untuk mendapatkan
+                                jadwal bimbingan.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="activity-list">
+
+                        <div class="activity">
+
+                            <div class="activity-icon brown">
+                                1
+                            </div>
+
+                            <div>
+                                <strong>Pilih dosen</strong>
+
+                                <span>
+                                    Pilih dosen pembimbing yang tersedia.
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity">
+
+                            <div class="activity-icon green">
+                                2
+                            </div>
+
+                            <div>
+                                <strong>Pilih tanggal</strong>
+
+                                <span>
+                                    Pilih tanggal bimbingan yang tersedia.
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity">
+
+                            <div class="activity-icon brown">
+                                3
+                            </div>
+
+                            <div>
+                                <strong>Ambil slot</strong>
+
+                                <span>
+                                    Klik tombol ambil slot sebelum kuota penuh.
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity">
+
+                            <div class="activity-icon green">
+                                4
+                            </div>
+
+                            <div>
+                                <strong>Jadwal tercatat</strong>
+
+                                <span>
+                                    Slot yang berhasil diambil masuk ke
+                                    Jadwal Bimbingan.
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Slot yang Dipilih</h3>
+
+                            <p>
+                                Informasi slot yang sedang kamu pilih.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="schedule-highlight">
+
+                        <div class="date-box">
+
+                            <span>OKT</span>
+                            <strong>12</strong>
+
+                        </div>
+
+
+                        <div class="schedule-info">
+
+                            <h4>
+                                Slot Bimbingan
+                            </h4>
+
+                            <p>
+                                Dr. Muhammad Rizky Pratama
+                            </p>
+
+                            <p>
+                                Slot tersedia:
+                                <strong id="quotaInfoAvailable">
+                                    3
+                                </strong>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             JADWAL BIMBINGAN
+        ====================================================== -->
+        <section class="page" id="jadwal">
+
+            <div class="page-actions">
+
+                <div>
+
+                   
+                </div>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="showAlert('Fitur pengajuan bimbingan dibuka.')"
+                >
+                    + Ajukan Bimbingan
+                </button>
+
+            </div>
+
+
+            <div class="filter-row">
+
+                <button class="filter active">
+                    Semua
+                </button>
+
+                <button class="filter">
+                    Mendatang
+                </button>
+
+                <button class="filter">
+                    Selesai
+                </button>
+
+            </div>
+
+
+            <div class="card table-card">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>No</th>
+                            <th>Tanggal</th>
+                            <th>Waktu</th>
+                            <th>Dosen</th>
+                            <th>Ruangan</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="scheduleTableBody">
+
+                        <tr>
+
+                            <td>9</td>
+                            <td>12 Okt 2026</td>
+                            <td>10.00 - 11.00</td>
+
+                            <td>
+                                Dr. Muhammad Rizky Pratama
+                            </td>
+
+                            <td>
+                                K3.A.310
+                            </td>
+
+                            <td>
+                                <span class="status upcoming">
+                                    Mendatang
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>8</td>
+                            <td>8 Okt 2026</td>
+                            <td>10.00 - 11.00</td>
+
+                            <td>
+                                Dr. Muhammad Rizky Pratama
+                            </td>
+
+                            <td>
+                                K3.A.310
+                            </td>
+
+                            <td>
+                                <span class="status done">
+                                    Selesai
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>7</td>
+                            <td>1 Okt 2026</td>
+                            <td>09.00 - 10.00</td>
+
+                            <td>
+                                Dr. Muhammad Rizky Pratama
+                            </td>
+
+                            <td>
+                                K3.C.302
+                            </td>
+
+                            <td>
+                                <span class="status done">
+                                    Selesai
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>6</td>
+                            <td>24 Sep 2026</td>
+                            <td>10.00 - 11.00</td>
+
+                            <td>
+                                Dr. Muhammad Rizky Pratama
+                            </td>
+
+                            <td>
+                                K3.B.315
+                            </td>
+
+                            <td>
+                                <span class="status done">
+                                    Selesai
+                                </span>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             REVISI
+        ====================================================== -->
+        <section class="page" id="revisi">
+
+            <div class="page-actions">
+
+                <div>
+
+                    
+
+                </div>
+
+            </div>
+
+
+            <div class="revision-grid">
+
+                <div class="revision-card">
+
+                    <div class="revision-top">
+
+                        <span class="chapter">
+                            BAB III
+                        </span>
+
+                        <span class="status revision">
+                            Dalam Proses
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Metodologi Penelitian
+                    </h3>
+
+                    <p>
+                        Perbaiki bagian metode pengembangan sistem dan tambahkan
+                        penjelasan tahapan penelitian.
+                    </p>
+
+                    <div class="revision-footer">
+                        <span>6 Oktober 2026</span>
+                        <strong>60%</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div style="width:60%"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="revision-card">
+
+                    <div class="revision-top">
+
+                        <span class="chapter">
+                            BAB IV
+                        </span>
+
+                        <span class="status revision">
+                            Dalam Proses
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Hasil dan Pembahasan
+                    </h3>
+
+                    <p>
+                        Lengkapi hasil pengujian sistem dan tambahkan pembahasan
+                        berdasarkan hasil pengujian.
+                    </p>
+
+                    <div class="revision-footer">
+                        <span>4 Oktober 2026</span>
+                        <strong>40%</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div style="width:40%"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="revision-card">
+
+                    <div class="revision-top">
+
+                        <span class="chapter">
+                            BAB V
+                        </span>
+
+                        <span class="status waiting">
+                            Belum Dikerjakan
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Kesimpulan
+                    </h3>
+
+                    <p>
+                        Sesuaikan kesimpulan dengan hasil penelitian dan
+                        tujuan penelitian.
+                    </p>
+
+                    <div class="revision-footer">
+                        <span>2 Oktober 2026</span>
+                        <strong>0%</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div style="width:0"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             DOKUMEN
+        ====================================================== -->
+        <section class="page" id="dokumen">
+
+            <div class="page-actions">
+
+                <div>
+
+                    
+
+                </div>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="showAlert('Fitur upload dokumen dibuka.')"
+                >
+                    ↑ Upload Dokumen
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="document-list">
+
+                    <div class="document">
+
+                        <div class="document-icon">
+                            PDF
+                        </div>
+
+                        <div class="document-info">
+
+                            <strong>
+                                Proposal Skripsi.pdf
+                            </strong>
+
+                            <span>
+                                2.4 MB · 20 Agustus 2026
+                            </span>
+
+                        </div>
+
+                        <span class="status done">
+                            Disetujui
+                        </span>
+
+                        <button class="more-btn">
+                            ⋮
+                        </button>
+
+                    </div>
+
+
+                    <div class="document">
+
+                        <div class="document-icon">
+                            DOC
+                        </div>
+
+                        <div class="document-info">
+
+                            <strong>
+                                Bab III Metodologi.docx
+                            </strong>
+
+                            <span>
+                                1.8 MB · 6 Oktober 2026
+                            </span>
+
+                        </div>
+
+                        <span class="status revision">
+                            Revisi
+                        </span>
+
+                        <button class="more-btn">
+                            ⋮
+                        </button>
+
+                    </div>
+
+
+                    <div class="document">
+
+                        <div class="document-icon">
+                            PDF
+                        </div>
+
+                        <div class="document-info">
+
+                            <strong>
+                                Bab IV Hasil.pdf
+                            </strong>
+
+                            <span>
+                                5 Oktober 2026
+                            </span>
+
+                        </div>
+
+                        <span class="status waiting">
+                            Menunggu
+                        </span>
+
+                        <button class="more-btn">
+                            ⋮
+                        </button>
+
+                    </div>
+
+
+                    <div class="document">
+
+                        <div class="document-icon">
+                            PDF
+                        </div>
+
+                        <div class="document-info">
+
+                            <strong>
+                                Form Bimbingan.pdf
+                            </strong>
+
+                            <span>
+                                3 Oktober 2026
+                            </span>
+
+                        </div>
+
+                        <span class="status done">
+                            Disetujui
+                        </span>
+
+                        <button class="more-btn">
+                            ⋮
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PROGRESS
+        ====================================================== -->
+        <section class="page" id="progress">
+
+            <div class="page-actions">
+
+                <div>
+
+                    
+                 
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-overview">
+
+                <div class="card progress-main">
+
+                    <span>
+                        Progress Keseluruhan
+                    </span>
+
+                    <div class="circle-progress">
+
+                        <div>
+                            <strong>65%</strong>
+                            <span>Selesai</span>
+                        </div>
+
+                    </div>
+
+                    <p>
+                        Terus lanjutkan proses bimbingan dan revisimu.
+                    </p>
+
+                </div>
+
+
+                <div class="card progress-details">
+
+                    <h3>
+                        Detail Progress
+                    </h3>
+
+
+                    <div class="detail-progress">
+
+                        <div>
+                            <span>Proposal</span>
+                            <strong>100%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div style="width:100%"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="detail-progress">
+
+                        <div>
+                            <span>Bab I</span>
+                            <strong>100%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div style="width:100%"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="detail-progress">
+
+                        <div>
+                            <span>Bab II</span>
+                            <strong>90%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div style="width:90%"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="detail-progress">
+
+                        <div>
+                            <span>Bab III</span>
+                            <strong>60%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div style="width:60%"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="detail-progress">
+
+                        <div>
+                            <span>Bab IV</span>
+                            <strong>40%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div style="width:40%"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="detail-progress">
+
+                        <div>
+                            <span>Bab V</span>
+                            <strong>20%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div style="width:20%"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             NOTIFIKASI
+        ====================================================== -->
+        <section class="page" id="notifikasi">
+
+            <div class="page-actions">
+
+                <div>
+
+                    
+
+                </div>
+
+
+                <button
+                    class="text-button"
+                    onclick="markAllRead()"
+                >
+                    Tandai semua dibaca
+                </button>
+
+            </div>
+
+
+            <div class="card notification-list">
+
+                <div class="notification unread">
+
+                    <div class="notification-icon">
+                        !
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Revisi baru diberikan
+                        </strong>
+
+                        <p>
+                            Dosen memberikan revisi untuk bagian BAB III.
+                        </p>
+
+                        <span>
+                            2 jam yang lalu
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="notification unread">
+
+                    <div class="notification-icon">
+                        ▣
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Jadwal bimbingan mendatang
+                        </strong>
+
+                        <p>
+                            Bimbingan berikutnya dijadwalkan pada
+                            12 Oktober 2026.
+                        </p>
+
+                        <span>
+                            5 jam yang lalu
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="notification">
+
+                    <div class="notification-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Dokumen disetujui
+                        </strong>
+
+                        <p>
+                            Dokumen Proposal Skripsi telah disetujui.
+                        </p>
+
+                        <span>
+                            Kemarin
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             AI ASSISTANT
+        ====================================================== -->
+        <section class="page" id="ai">
+
+            <div class="ai-container">
+
+                <div class="ai-header">
+
+                    <div class="ai-icon">
+                        ✦
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            AI Assistant
+                        </h2>
+
+                        <p>
+                            Asisten informasi untuk membantu melihat
+                            data skripsimu.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ai-warning">
+
+                    <strong>ⓘ Informasi</strong>
+
+                    <p>
+                        AI Assistant hanya memberikan informasi berdasarkan
+                        data yang tersedia pada sistem. AI tidak digunakan
+                        untuk menilai atau mengoreksi isi skripsi.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="chat-box"
+                    id="chatBox"
+                >
+
+                    <div class="chat assistant">
+
+                        <div class="chat-avatar">
+                            ✦
+                        </div>
+
+                        <div class="chat-message">
+
+                            Halo Femi! Saya bisa membantu memberikan
+                            informasi mengenai jadwal bimbingan, kuota,
+                            status revisi, dokumen, dan progress skripsimu.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quick-question">
+
+                    <button
+                        onclick="askAI('Kapan jadwal bimbingan saya berikutnya?')"
+                    >
+                        Jadwal berikutnya?
+                    </button>
+
+                    <button
+                        onclick="askAI('Berapa progress skripsi saya?')"
+                    >
+                        Progress saya?
+                    </button>
+
+                    <button
+                        onclick="askAI('Berapa revisi saya yang aktif?')"
+                    >
+                        Revisi aktif?
+                    </button>
+
+                    <button
+                        onclick="askAI('Berapa kuota bimbingan yang tersedia?')"
+                    >
+                        Kuota tersedia?
+                    </button>
+
+                </div>
+
+
+                <div class="chat-input">
+
+                    <input
+                        type="text"
+                        id="aiInput"
+                        placeholder="Tanyakan sesuatu..."
+                        onkeydown="if(event.key === 'Enter') sendAI()"
+                    >
+
+                    <button onclick="sendAI()">
+                        ➤
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PROFIL
+        ====================================================== -->
+        <section class="page" id="profil">
+
+            <div class="page-actions">
+
+                <div>
+
+                    <h2>
+                        Profil
+                    </h2>
+
+                    <p>
+                        Informasi akun mahasiswa.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="showAlert('Mode edit profil aktif.')"
+                >
+                    Edit Profil
+                </button>
+
+            </div>
+
+
+            <div class="profile-card card">
+
+                <div class="profile-cover"></div>
+
+
+                <div class="profile-content">
+
+                    <div class="avatar profile-avatar">
+                        FA
+                    </div>
+
+                    <h2>
+                        Femi Aulia Andini
+                    </h2>
+
+                    <p>
+                        Mahasiswa Teknologi Informasi
+                    </p>
+
+
+                    <div class="profile-info">
+
+                        <div>
+
+                            <span>NIM</span>
+
+                            <strong>
+                                43050240005
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>Program Studi</span>
+
+                            <strong>
+                                Teknologi Informasi
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>Perguruan Tinggi</span>
+
+                            <strong>
+                                UIN Salatiga
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>Status</span>
+
+                            <strong>
+                                Mahasiswa Aktif
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+<div class="toast" id="toast">
+
+    <span>
+        ✓
+    </span>
+
+    <p id="toastText">
+        Berhasil
+    </p>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
